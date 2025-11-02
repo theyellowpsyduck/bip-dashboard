@@ -40,7 +40,7 @@ jobs:
           cd frontend
           npm run build
         env:
-          BASE_PATH: /${{ github.event.repository.name }}/frontend/
+          BASE_PATH: /bip-dashboard/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

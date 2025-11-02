@@ -7,7 +7,7 @@ import react from '@vitejs/plugin-react'
 // For root deployment, use: '/'
 export default defineConfig({
   plugins: [react()],
-  base: process.env.BASE_PATH || '/',
+  base: process.env.BASE_PATH || '/bip-dashboard/',
   build: {
     outDir: 'dist',
   },
