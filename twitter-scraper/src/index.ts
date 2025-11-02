@@ -14,19 +14,22 @@ const app = express();
 
 // Middleware to parse multipart/ form-data
 const upload = multer();
-const MAX_ITERATIONS = 100;
+const MAX_ITERATIONS = 1000; // each iteration is 20 tweets, so each day a maximum of 20000 tweets can be scraped
 
-const getTweets = async (url: string, headers: Record<string, string>) => {
+const getTweets = async (url: string, headers: Record<string, string>, lastTweetDate?: string) => {
   const now = new Date();
+
   const dayBefore = new Date(now);
   dayBefore.setDate(dayBefore.getDate() - 1);
+
+  const lastDate = lastTweetDate ? new Date(lastTweetDate) : dayBefore;
 
   let cursor = null;
   let currentDate = new Date(now);
   let iterations = 0;
   const posts: TwitterPost[] = [];
 
-  while (iterations < MAX_ITERATIONS && currentDate > dayBefore) {
+  while (iterations < MAX_ITERATIONS && currentDate > lastDate) {
     console.log("iterating", iterations, currentDate.toISOString());
     const newUrl = replaceCursor(url, cursor);
     const config = {
@@ -46,8 +49,8 @@ const getTweets = async (url: string, headers: Record<string, string>) => {
 
     currentDate = newPosts.at(-1)?.createdAt ?? currentDate;
 
-    // wait 5 second
-    await new Promise((resolve) => setTimeout(resolve, 5000));
+    // wait 2 second
+    await new Promise((resolve) => setTimeout(resolve, 2000));
     posts.push(...newPosts);
     iterations++;
     cursor = newCursor;
@@ -57,7 +60,7 @@ const getTweets = async (url: string, headers: Record<string, string>) => {
 };
 
 app.post("/tweets", upload.none(), async (req: Request, res: Response) => {
-  const { curl } = req.body;
+  const { curl, lastTweetDate } = req.body;
   if (typeof curl !== "string") {
     return res.status(400).json({ error: "curl is required" });
   }
@@ -66,7 +69,7 @@ app.post("/tweets", upload.none(), async (req: Request, res: Response) => {
 
   // const { startHalf, cursorText, endHalf } = parseUrlForCursor(url);
 
-  getTweets(url, headers);
+  getTweets(url, headers, lastTweetDate);
   return res.json({ started: true });
 });
 
