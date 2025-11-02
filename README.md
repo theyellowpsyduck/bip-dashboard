@@ -11,6 +11,14 @@ This dashboard tracks updates from users made in the community, combines all twe
 
 ## How does it work?
 
-The dashboard frontend accepts two data sources: a list of users profiles and a list of content i.e. all tweets in the community organized and combined into one tweet per day.
+The dashboard frontend accepts data sources and displays the tweets. 
 
-This way for each day the dashboard can be viewed. 
+The first data source will be a file containing user account information.
+Second file will contain a list of tweets made by users in a given day. 
+
+## Future plans
+
+ - [ ] AI filtering of irrelvant content
+ - [ ] Track a users building journey across weeks and months
+ - [ ] Adding product demos at various checkpoints
+ - [ ] Intelligent search for relevant content 
