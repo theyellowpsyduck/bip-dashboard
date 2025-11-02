@@ -21,34 +21,18 @@ html {
   background: #f5f5f5;
 }
 
-.dark ::-webkit-scrollbar-track {
-  background: #000;
-}
-
 ::-webkit-scrollbar-thumb {
   background: #ccc;
   border-radius: 6px;
-}
-
-.dark ::-webkit-scrollbar-thumb {
-  background: #333;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #999;
 }
 
-.dark ::-webkit-scrollbar-thumb:hover {
-  background: #444;
-}
-
 /* Image loading placeholder */
 img {
   background: #e5e5e5;
-}
-
-.dark img {
-  background: #1a1a1a;
 }
 
 /* Focus styles */

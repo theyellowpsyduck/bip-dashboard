@@ -26,10 +26,10 @@ export default function Filters({ tweets, users, onFilterChange }) {
           value={userSearchTerm}
           onChange={(e) => setUserSearchTerm(e.target.value)}
           placeholder="Search users by name or username..."
-          className="flex-1 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-full px-4 py-2 focus:outline-none focus:border-twitter-blue text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
+          className="flex-1 bg-white border border-gray-300 rounded-full px-4 py-2 focus:outline-none focus:border-twitter-blue text-gray-900 placeholder-gray-500"
         />
       </div>
-      <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-500">
+      <div className="flex items-center gap-4 text-sm text-gray-600">
         <span>{tweets.length} tweets</span>
         <span>{users.length} users</span>
       </div>

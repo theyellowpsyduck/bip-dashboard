@@ -121,7 +121,7 @@ export default function DataSourceInput({
   }, [selectedDate]);
 
   return (
-    <div className="mb-6 p-4 bg-gray-50 dark:bg-gray-900/50 rounded-xl border border-gray-200 dark:border-gray-800">
+    <div className="mb-6 p-4 bg-gray-50 rounded-xl border border-gray-200">
       <div className="space-y-3">
         <div>
           <input
@@ -129,11 +129,11 @@ export default function DataSourceInput({
             id="datePicker"
             value={selectedDate}
             onChange={handleDateChange}
-            className="w-full bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-twitter-blue text-sm text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
+            className="w-full bg-white border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-twitter-blue text-sm text-gray-900 placeholder-gray-500"
           />
         </div>
 
-        <div className="text-sm text-gray-500 dark:text-gray-400 space-y-1">
+        <div className="text-sm text-gray-500 space-y-1">
           <p>
             There is a lot of noise on the build in public community on X, this
             dashboard gives everyone a fair chance to be seen.

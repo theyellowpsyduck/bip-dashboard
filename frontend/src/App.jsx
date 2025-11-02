@@ -24,7 +24,7 @@ function App() {
   };
 
   return (
-    <div className="bg-white dark:bg-black text-gray-900 dark:text-white min-h-screen transition-colors duration-200">
+    <div className="bg-white text-gray-900 min-h-screen">
       <div className="container mx-auto max-w-2xl px-4 py-8">
         <Header />
 
@@ -46,7 +46,7 @@ function App() {
         {loading && !dataLoaded && (
           <div className="text-center py-12">
             <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-twitter-blue"></div>
-            <p className="mt-4 text-gray-600 dark:text-gray-500">
+            <p className="mt-4 text-gray-600">
               Loading tweets...
             </p>
           </div>
@@ -54,8 +54,8 @@ function App() {
 
         {!loading && dataLoaded && filteredTweets.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-gray-600 dark:text-gray-500">
-              {message ? message : "No tweets found for this date"}
+            <p className="text-gray-600">
+              {error ? error : "No tweets found for this date"}
             </p>
           </div>
         )}

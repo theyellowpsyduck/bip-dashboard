@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:gh-pages": "BASE_PATH=/bip-dashboard/ vite build",
+    "test:gh-pages": "npm run build:gh-pages && cd .. && mkdir -p test-serve/bip-dashboard && cp -r frontend/dist/* test-serve/bip-dashboard/ && npx serve test-serve -p 3000"
   },
   "dependencies": {
     "react": "^18.2.0",

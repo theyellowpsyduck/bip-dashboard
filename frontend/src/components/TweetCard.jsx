@@ -10,7 +10,7 @@ export default function TweetCard({ tweet }) {
 
   return (
     <div
-      className="border-b border-gray-200 dark:border-gray-800 pb-4 hover:bg-gray-50 dark:hover:bg-gray-900/50 transition-colors cursor-pointer tweet-enter"
+      className="border-b border-gray-200 pb-4 hover:bg-gray-50 transition-colors cursor-pointer tweet-enter"
       onClick={handleClick}
     >
       <article className="flex gap-3 px-4 pt-3">
@@ -30,14 +30,14 @@ export default function TweetCard({ tweet }) {
         <div className="flex-1 min-w-0">
           {/* Header */}
           <div className="flex items-center gap-2 mb-1">
-            <span className="font-bold hover:underline cursor-pointer text-gray-900 dark:text-white">{tweet.user.name}</span>
-            <span className="text-gray-600 dark:text-gray-500">@{tweet.user.username}</span>
-            <span className="text-gray-600 dark:text-gray-500">·</span>
+            <span className="font-bold hover:underline cursor-pointer text-gray-900">{tweet.user.name}</span>
+            <span className="text-gray-600">@{tweet.user.username}</span>
+            <span className="text-gray-600">·</span>
             <a
               href={tweet.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 dark:text-gray-500 hover:underline"
+              className="text-gray-600 hover:underline"
               onClick={(e) => e.stopPropagation()}
             >
               <time dateTime={tweet.createdAt.toISOString()}>{formattedDate}</time>
@@ -46,13 +46,13 @@ export default function TweetCard({ tweet }) {
 
           {/* Text */}
           <div
-            className="mb-3 text-[15px] leading-5 break-words text-gray-900 dark:text-white"
+            className="mb-3 text-[15px] leading-5 break-words text-gray-900"
             dangerouslySetInnerHTML={{ __html: formattedText }}
           />
 
           {/* Media */}
           {tweet.media && tweet.media.length > 0 && (
-            <div className="mb-3 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800">
+            <div className="mb-3 rounded-2xl overflow-hidden border border-gray-200">
               {tweet.media.length === 1 ? (
                 <img
                   src={tweet.media[0]}
