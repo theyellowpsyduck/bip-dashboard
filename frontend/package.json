@@ -11,6 +11,7 @@
     "test:gh-pages": "npm run build:gh-pages && cd .. && mkdir -p test-serve/bip-dashboard && cp -r frontend/dist/* test-serve/bip-dashboard/ && npx serve test-serve -p 3000"
   },
   "dependencies": {
+    "posthog-js": "^1.285.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

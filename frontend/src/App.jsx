@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import DataSourceInput from "./components/DataSourceInput";
 import Filters from "./components/Filters";
 import TweetCard from "./components/TweetCard";
+import { usePostHog } from "posthog-js/react";
 
 function App() {
   const [tweets, setTweets] = useState([]);
@@ -11,6 +12,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [dataLoaded, setDataLoaded] = useState(false);
+  const posthog = usePostHog();
 
   const handleDataLoad = (loadedTweets, loadedUsers) => {
     setTweets(loadedTweets);
@@ -22,6 +24,10 @@ function App() {
   const handleFilterChange = (filtered) => {
     setFilteredTweets(filtered);
   };
+
+  useEffect(() => {
+    posthog.capture('site_viewed');
+  }, [posthog]);
 
   return (
     <div className="bg-white text-gray-900 min-h-screen">
