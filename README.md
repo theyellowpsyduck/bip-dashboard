@@ -2,6 +2,8 @@
 
 This is a dashboard for the Build In Public community on X.
 
+[https://theyellowpsyduck.github.io/bip-dashboard/](https://theyellowpsyduck.github.io/bip-dashboard/)
+
 ### Why?
 
 Build in public is a great way to discover motivation, ideas, products, users and mistakes.
