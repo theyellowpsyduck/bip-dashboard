@@ -41,6 +41,8 @@ jobs:
           npm run build
         env:
           BASE_PATH: /bip-dashboard/
+          VITE_PUBLIC_POSTHOG_KEY: phc_Hb6thzd2uuBYv0kZKcl146Sumjm7Zss0gio9oOR3uIq
+          VITE_PUBLIC_POSTHOG_HOST: https://us.i.posthog.com
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
